@@ -14,7 +14,11 @@ namespace studman.Controllers
 
         public ActionResult Index()
         {
-            return Json(new {msg = "working" },JsonRequestBehavior.AllowGet);
+
+            adamlye_studmanEntities st = new adamlye_studmanEntities();
+
+            var data = (from student in st.students.Take(10) select student);
+            return Json(new {status = "success",msg = "working",data = data },JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult me()
