@@ -2,6 +2,11 @@
 <Schema Namespace="adamlye_studmanModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="adamlye_studmanModelStoreContainer">
     <EntitySet Name="student" EntityType="adamlye_studmanModel.Store.student" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_institute" EntityType="adamlye_studmanModel.Store.tbl_institute" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_tbl_institute_tbl_institute" Association="adamlye_studmanModel.Store.FK_tbl_institute_tbl_institute">
+      <End Role="tbl_institute" EntitySet="tbl_institute" />
+      <End Role="tbl_institute1" EntitySet="tbl_institute" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="student">
     <Key>
@@ -11,4 +16,25 @@
     <Property Name="email" Type="varchar" Nullable="false" MaxLength="100" />
     <Property Name="password" Type="varchar" Nullable="false" MaxLength="100" />
   </EntityType>
+  <EntityType Name="tbl_institute">
+    <Key>
+      <PropertyRef Name="ins_id" />
+    </Key>
+    <Property Name="ins_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ins_name" Type="varchar" MaxLength="50" />
+    <Property Name="ins_location" Type="varchar" MaxLength="50" />
+    <Property Name="ins_image" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <Association Name="FK_tbl_institute_tbl_institute">
+    <End Role="tbl_institute" Type="adamlye_studmanModel.Store.tbl_institute" Multiplicity="1" />
+    <End Role="tbl_institute1" Type="adamlye_studmanModel.Store.tbl_institute" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_institute">
+        <PropertyRef Name="ins_id" />
+      </Principal>
+      <Dependent Role="tbl_institute1">
+        <PropertyRef Name="ins_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

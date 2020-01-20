@@ -10,5 +10,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tbl_institute">
+      <EntityTypeMapping TypeName="adamlye_studmanModel.tbl_institute">
+        <MappingFragment StoreEntitySet="tbl_institute">
+          <ScalarProperty Name="ins_image" ColumnName="ins_image" />
+          <ScalarProperty Name="ins_location" ColumnName="ins_location" />
+          <ScalarProperty Name="ins_name" ColumnName="ins_name" />
+          <ScalarProperty Name="ins_id" ColumnName="ins_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

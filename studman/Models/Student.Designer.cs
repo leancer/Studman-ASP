@@ -80,6 +80,22 @@ namespace studman.Models
             }
         }
         private ObjectSet<student> _students;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<tbl_institute> tbl_institute
+        {
+            get
+            {
+                if ((_tbl_institute == null))
+                {
+                    _tbl_institute = base.CreateObjectSet<tbl_institute>("tbl_institute");
+                }
+                return _tbl_institute;
+            }
+        }
+        private ObjectSet<tbl_institute> _tbl_institute;
 
         #endregion
 
@@ -91,6 +107,14 @@ namespace studman.Models
         public void AddTostudents(student student)
         {
             base.AddObject("students", student);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the tbl_institute EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTotbl_institute(tbl_institute tbl_institute)
+        {
+            base.AddObject("tbl_institute", tbl_institute);
         }
 
         #endregion
@@ -204,6 +228,135 @@ namespace studman.Models
         private global::System.String _password;
         partial void OnpasswordChanging(global::System.String value);
         partial void OnpasswordChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="adamlye_studmanModel", Name="tbl_institute")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class tbl_institute : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new tbl_institute object.
+        /// </summary>
+        /// <param name="ins_id">Initial value of the ins_id property.</param>
+        public static tbl_institute Createtbl_institute(global::System.Int32 ins_id)
+        {
+            tbl_institute tbl_institute = new tbl_institute();
+            tbl_institute.ins_id = ins_id;
+            return tbl_institute;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ins_id
+        {
+            get
+            {
+                return _ins_id;
+            }
+            set
+            {
+                if (_ins_id != value)
+                {
+                    Onins_idChanging(value);
+                    ReportPropertyChanging("ins_id");
+                    _ins_id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ins_id");
+                    Onins_idChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ins_id;
+        partial void Onins_idChanging(global::System.Int32 value);
+        partial void Onins_idChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ins_name
+        {
+            get
+            {
+                return _ins_name;
+            }
+            set
+            {
+                Onins_nameChanging(value);
+                ReportPropertyChanging("ins_name");
+                _ins_name = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ins_name");
+                Onins_nameChanged();
+            }
+        }
+        private global::System.String _ins_name;
+        partial void Onins_nameChanging(global::System.String value);
+        partial void Onins_nameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ins_location
+        {
+            get
+            {
+                return _ins_location;
+            }
+            set
+            {
+                Onins_locationChanging(value);
+                ReportPropertyChanging("ins_location");
+                _ins_location = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ins_location");
+                Onins_locationChanged();
+            }
+        }
+        private global::System.String _ins_location;
+        partial void Onins_locationChanging(global::System.String value);
+        partial void Onins_locationChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ins_image
+        {
+            get
+            {
+                return _ins_image;
+            }
+            set
+            {
+                Onins_imageChanging(value);
+                ReportPropertyChanging("ins_image");
+                _ins_image = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ins_image");
+                Onins_imageChanged();
+            }
+        }
+        private global::System.String _ins_image;
+        partial void Onins_imageChanging(global::System.String value);
+        partial void Onins_imageChanged();
 
         #endregion
 
